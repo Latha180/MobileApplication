@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/assets/css/bootstrap-themed.min.css">
+    <link rel="stylesheet" href="~/assets/css/blogsite.css">
+
+    <title>Sitecore Powered Mobiles</title>
+
+</head>
+<body>
+
+    <main role="main" class="container blog-posts">
+
+        <br>
+
+        <div class="row">
+            <!-- Begin Repeating Elements Area -->
+            <!-- Begin Repeating Element-->
+            @{
+                var item = Sitecore.Context.Database.GetItem("{7F31B620-066C-4498-A7F9-99315C4F1DC6}");
+            }
+
+            <div class="blog-post-card card col-lg-4 col-md-6">
+                <img class="card-img-top" src="~/assets/images/developer.jpg" alt="Card image cap">
+                <div class="card-body bg-light">
+                    <strong class="d-inline-block mb-2 text-success">@Html.Sitecore().Field("PrefferedMobiles", item)</strong>
+                    <h3 class="card-title">Long blog post title</h3>
+                    <div class="mb-1 text-muted">Dec 11, 2018</div>
+                    <p>Some quick example text to build on the Blog post title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-warning btn-block">@Html.Sitecore().Field("PostCardButtonText")</a>
+                </div>
+            </div>
+            <!-- End Repeating Element-->
+            <!-- Begin Repeating Element-->
+            <div class="blog-post-card card col-lg-4 col-md-6">
+                <img class="card-img-top" src="~/assets/images/animals.jpg" alt="Card image cap">
+                <div class="card-body bg-light ">
+                    <strong class="d-inline-block mb-2 text-success">Design</strong>
+                    <h3 class="card-title">Super long blog post title</h3>
+                    <div class="mb-1 text-muted">Dec 1, 2018</div>
+                    <p>
+                        Some quick example text to build on the Blog post title and make up the bulk of the card's content. Some
+                        quick example text to build on the Blog post title and make up the bulk of the card's content. Some quick
+                        example text to build on the Blog post title and make up the bulk of the card's content.
+                    </p>
+                    <a href="#" class="btn btn-warning btn-block">@Html.Sitecore().Field("PostCardButtonText")</a>
+                </div>
+            </div>
+            <!-- End Repeating Element-->
+            <!-- Begin Repeating Element-->
+            <div class="blog-post-card card col-lg-4 col-md-6">
+                <img class="card-img-top" src="~/assets/images/people.jpg" alt="Card image cap">
+                <div class="card-body bg-light ">
+                    <strong class="d-inline-block mb-2 text-success">Design</strong>
+                    <h3 class="card-title">Blog post title</h3>
+                    <div class="mb-1 text-muted">Nov 21, 2018</div>
+                    <p>Some quick example text to build on the Blog post title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-warning btn-block">@Html.Sitecore().Field("PostCardButtonText")</a>
+                </div>
+            </div>
+            <!-- End Repeating Element-->
+            <!-- Begin Repeating Element-->
+            <div class="blog-post-card card col-lg-4 col-md-6">
+                <img class="card-img-top" src="~/assets/images/arch.jpg" alt="Card image cap">
+                <div class="card-body bg-light ">
+                    <strong class="d-inline-block mb-2 text-success">Design</strong>
+                    <h3 class="card-title">Blog post title</h3>
+                    <div class="mb-1 text-muted">Nov 13, 2018</div>
+                    <p>Some quick example text to build on the Blog post title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-warning btn-block">@Html.Sitecore().Field("PostCardButtonText")</a>
+                </div>
+            </div>
+            <!-- End Repeating Element-->
+            <!-- Begin Repeating Element-->
+            <div class="blog-post-card card col-lg-4 col-md-6">
+                <img class="card-img-top" src="~/assets/images/366.jpg" alt="Card image cap">
+                <div class="card-body bg-light ">
+                    <strong class="d-inline-block mb-2 text-success">Design</strong>
+                    <h3 class="card-title">Blog post title</h3>
+                    <div class="mb-1 text-muted">Oct 31, 2018</div>
+                    <p>Some quick example text to build on the Blog post title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-warning btn-block">@Html.Sitecore().Field("PostCardButtonText")</a>
+                </div>
+            </div>
+            <!-- End Repeating Element-->
+            <!-- End Repeating Elements Area -->
+
+        </div>
+    </main>
+</body>
+</html>

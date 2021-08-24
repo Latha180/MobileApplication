@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/assets/css/bootstrap-themed.min.css">
+    <title>Sitecore Powered Mobile Website</title>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="jumbotron text-white bg-primary">
+                <h1 class="display-3">
+
+                    @{
+                        var item = Sitecore.Context.Database.GetItem("{FB0AAB1B-E046-4D6D-860B-8BE430CF7556}");
+                    }
+
+                    <div>
+                        @Html.Sitecore().Field("Title", item)
+                    </div>
+                </h1>
+                <p class="lead"><a href="https://jss.sitecore.com/" class="text-light">Sitecore</a>  @Html.Sitecore().Field("MobileBrand", item)</p>
+            </div>
+        </div><!-- /.container -->
+    </header>
+</body>
+</html>
+

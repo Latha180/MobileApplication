@@ -1,0 +1,64 @@
+﻿@using Sitecore.Mvc.Presentation
+@using Sitecore.Mvc.Extensions
+
+
+@{
+    ViewBag.Title = "SOLR Search Component";
+}
+
+<main role="main" class="container blog-posts">
+
+    <div class="main-search">
+        <div class="input-group">
+            <input type="text" name="name" id="searchInput" class="form-control" placeholder="Search this blog" required>
+            <div class="input-group-append">
+
+                <button type="button" id="searchButton" class="btn btn-dark">Search</button>
+
+            </div>
+        </div>
+    </div>
+</main>
+
+<div id="resultsItem"></div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+    @*<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>*@
+<script>
+		$(document).ready(function () {
+			$("#searchButton").click(function (e) {
+				// debugger;
+				e.preventDefault();
+				$.ajax({
+					type: "GET",
+					datatype: "JSON", url: "@Url.Action("DoSearch", "Mobiles")",
+					contentType: "application/json",
+					data: {
+						searchText: $("#searchInput").val()
+					},
+					success: function (result) {
+						var resultText = "";
+						$('#resultsItem').text(resultText);
+						$('#resultsItem').append("Results from Mobile Site <BR><BR>");
+						$(result.Results).each(function (index, item) {
+							// each iteration
+							var Description = item.Description;
+							var Title = item.Title;
+							var Image = item.MobileSmallImage;
+							var MobileBrand = item.MobileBrand;
+							var MobileDate = item.MobileReleaseDate;
+							var Description = item.Description;
+							//resultText += (index + 1) + " - " + Description + Title + "; " + MobileBrand + Title + "; " + Category + "; " + "<BR><BR>";
+							resultText += '<main role="main" class="container blog-posts">'+'<div class="blog-post-card card col-lg-4 col-md-6">'
+								+ '<img class="card-img-top">' + Image + '<strong class="d-inline-block mb-2 text-success">' + Title + '</strong>' + '<h3 class="card-title">'
+								+ Title + '</h3>' + '<div class="mb-1 text-muted">' + MobileDate + '</div>' + '<p>' + Description + '</p>' + '<a href="http://mobiles.blog.com/Nokia" class="btn btn-warning btn-block">Readon</a>' + '</div>'+'</main >';
+                            });
+                            $('#resultsItem').append(resultText);
+                            },
+					error: function (result) {
+						alert('error');
+					}
+				});
+			});
+		});
+</script>
+

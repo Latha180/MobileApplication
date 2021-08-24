@@ -1,0 +1,31 @@
+@using Sitecore.Mvc.Presentation
+@using Sitecore.Mvc.Extensions
+
+@{
+    Sitecore.Data.Fields.MultilistField prefferedmobiles = Model.Fields["PrefferedMobiles"];
+}
+<main role="main" class="container blog-posts">
+    <div class="row">
+
+        @{
+            foreach (Sitecore.Data.Items.Item relProd in prefferedmobiles.GetItems())
+            {
+                <div class="blog-post-card card col-lg-4 col-md-6">
+                    <img class="card-img-top">
+                    @Html.Sitecore().Field("MobileSmallImage", relProd, new { width = "350", height = "410" })
+                    <div class="card-body bg-light">
+
+                        <strong class="d-inline-block mb-2 text-success">@relProd.Name</strong>
+                        <h3 class="card-title">@Html.Sitecore().Field("Title", relProd)</h3>
+                        <div class="mb-1 text-muted">@Html.Sitecore().Field("MobileReliseDate", relProd, new { format = "yyyy-MMM-dd" })</div>
+                        <p>@Html.Sitecore().Field("Description", relProd)</p>
+                        @{
+                            string url = Sitecore.Links.LinkManager.GetItemUrl(relProd);
+                        }
+                        <a href="@url " class="btn btn-warning btn-block">Read on</a>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</main>

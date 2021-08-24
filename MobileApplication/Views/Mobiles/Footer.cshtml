@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/assets/css/bootstrap-themed.min.css">
+    <link rel="stylesheet" href="~/assets/css/blogsite.css">
+
+    <title>Sitecore Powered Mobiles Website</title>
+
+</head>
+<body>
+
+    @{
+        var item = Sitecore.Context.Database.GetItem("{7F31B620-066C-4498-A7F9-99315C4F1DC6}");
+    }
+
+    <Footer>
+        <div class="container">
+            <div class="text-white bg-primary">
+                <p class="lead">@Html.Sitecore().Field("CopyRight", item)</p>
+            </div>
+        </div>
+    </Footer>
+
+</body>
+
+</html>

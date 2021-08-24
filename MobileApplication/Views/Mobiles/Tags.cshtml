@@ -1,0 +1,30 @@
+﻿@using Sitecore.Mvc.Presentation
+@using Sitecore.Mvc.Extensions
+
+@{
+    Sitecore.Data.Fields.MultilistField tags = Model.Fields["Tag"];
+}
+<main role="main" class="container blog-post-detail">
+    <div class="row">
+        <div class="blog-post-detail-card card col-lg-12">
+            <div class="card-body bg-light">
+                <img class="card-img-top"><h4>@Html.Sitecore().Field("MobileLongImage")</h4>
+                <strong class="d-inline-block mb-2 text-success">@Html.Sitecore().Field("Category")</strong>
+                <h3 class="card-title">@Html.Sitecore().Field("Title")</h3>
+                <div class="mb-1 text-muted">@Html.Sitecore().Field("MobileReliseDate", new { format = "MMM-dd-yyyy" })</div>
+                <p>@Html.Sitecore().Field("LangDescription")</p>
+                <span class="read-more-heading">Read more: </span>
+                <div class="blog-detail-tag-list">
+                    @{
+
+                        foreach (Sitecore.Data.Items.Item tag in tags.GetItems())
+                        {
+                            <a class="btn btn-info" href="https://www.flipkart.com/mobiles/mi~brand/pr?sid=tyy,4io&otracker=nmenu_sub_Electronics_0_Mi" role="button">@tag.Name</a>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
